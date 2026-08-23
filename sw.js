@@ -1,5 +1,5 @@
-/* Pocket Gaffer offline service worker — generated */
-const CACHE = "pocket-gaffer-offline-v1";
+/* Pocket Gaffer offline service worker */
+const CACHE = "pocket-gaffer-offline-v2-20260823";
 const PRECACHE = [
   "./index.html",
   "./apple-touch-icon.png",
@@ -37,6 +37,28 @@ self.addEventListener("fetch", (event) => {
   if (req.method !== "GET") return;
   const url = new URL(req.url);
   if (url.origin !== self.location.origin) return;
+
+  const isDoc =
+    req.mode === "navigate" ||
+    req.destination === "document" ||
+    url.pathname.endsWith("/") ||
+    url.pathname.endsWith(".html") ||
+    url.pathname.endsWith(".webmanifest");
+
+  if (isDoc) {
+    event.respondWith(
+      fetch(req)
+        .then((res) => {
+          if (res && res.ok) {
+            const copy = res.clone();
+            caches.open(CACHE).then((cache) => cache.put(req, copy));
+          }
+          return res;
+        })
+        .catch(() => caches.match(req).then((cached) => cached || caches.match("./index.html"))),
+    );
+    return;
+  }
 
   event.respondWith(
     caches.match(req).then((cached) => {

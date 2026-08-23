@@ -1,58 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#0c0f0e" />
-  <meta name="app-version" content="2026-08-23-now" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="Gaffer" />
-  <title>Pocket Gaffer 26/27</title>
-  <link rel="manifest" href="./manifest.webmanifest" />
-  <link rel="apple-touch-icon" href="../icons/icon-192.png" />
-  <style>
-    :root { --bg:#0c0f0e; --fg:#e8eee9; --muted:#8a9690; --line:#1c2421; --card:#121816; --accent:#c6d7c4; }
-    *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--fg);font-family:ui-sans-serif,system-ui,-apple-system,sans-serif;min-height:100%}
-    body{padding:env(safe-area-inset-top) 16px 24px}
-    button,select{font:inherit}
-    h1,h2,h3{font-weight:650;letter-spacing:-.03em;margin:0}
-    .wrap{max-width:720px;margin:0 auto}
-    .top{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:11px;letter-spacing:.16em;text-transform:uppercase;padding:8px 0 18px}
-    .hero{text-align:center;padding:28px 0 18px}
-    .kicker{color:var(--muted);letter-spacing:.18em;text-transform:uppercase;font-size:11px;margin-bottom:10px}
-    .lead{color:#b7c2bb;line-height:1.45;margin:12px auto 22px;max-width:26rem}
-    .stack{display:flex;flex-direction:column;gap:10px}
-    .btn{border:0;border-radius:14px;padding:14px 16px;background:#1a211e;color:var(--fg);cursor:pointer}
-    .btn.primary{background:var(--accent);color:#111}
-    .btn.ghost{background:transparent;color:var(--muted)}
-    .btn:disabled{opacity:.4}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px}
-    .row{display:flex;justify-content:space-between;gap:10px;align-items:center}
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-    .muted{color:var(--muted)}
-    .tiny{font-size:12px}
-    .tabs{display:flex;gap:6px;overflow:auto;padding:4px 0 12px}
-    .tabs button{white-space:nowrap;background:#151b19;border:0;color:var(--muted);border-radius:999px;padding:8px 12px}
-    .tabs button.on{background:var(--accent);color:#111}
-    table{width:100%;border-collapse:collapse;font-size:13px}
-    th,td{padding:7px 4px;text-align:left;border-bottom:1px solid var(--line)}
-    th{color:var(--muted);font-weight:500}
-    .you{color:var(--accent)}
-    canvas{width:100%;height:auto;background:#163024;border-radius:16px;display:block}
-    .score{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:10px 0}
-    .score b{font-size:28px}
-    select{background:#151b19;color:var(--fg);border:1px solid var(--line);border-radius:10px;padding:10px}
-    .hl{border-left:3px solid var(--accent);padding-left:10px;margin:8px 0}
-    .list button{width:100%;text-align:left}
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0c0f0e" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Gaffer" />
+<title>Pocket Gaffer</title>
+<link rel="manifest" href="./manifest.webmanifest" />
+<link rel="apple-touch-icon" href="../icons/icon-192.png" />
+<style>
+:root{--bg:#0b0e0d;--fg:#e7eee8;--mute:#8b968f;--line:#1b2320;--card:#121715;--acc:#c8d7c5;--pitch:#1a3a2c}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--fg);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+body{padding:calc(12px + env(safe-area-inset-top)) 16px 28px}
+button,select{font:inherit}
+h1,h2,h3{margin:0;letter-spacing:-.03em}
+.wrap{max-width:640px;margin:0 auto}
+.bar{display:flex;justify-content:space-between;color:var(--mute);font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px}
+.hero{text-align:center;padding:18px 0 8px}
+.k{color:var(--mute);letter-spacing:.16em;text-transform:uppercase;font-size:11px}
+.lead{color:#b6c0ba;line-height:1.45;margin:10px auto 18px;max-width:26rem}
+.col{display:flex;flex-direction:column;gap:10px}
+.btn{border:0;border-radius:14px;padding:14px 16px;background:#1a211e;color:var(--fg);width:100%;text-align:center}
+.btn.on{background:var(--acc);color:#111}
+.btn.ghost{background:transparent;color:var(--mute);width:auto;padding:8px 0}
+.btn:disabled{opacity:.35}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.tabs{display:flex;gap:6px;overflow:auto;padding:2px 0 10px;-webkit-overflow-scrolling:touch}
+.tabs .btn{width:auto;padding:8px 12px;border-radius:999px;background:#151b19;color:var(--mute)}
+.tabs .btn.on{background:var(--acc);color:#111}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:8px 4px;text-align:left;border-bottom:1px solid var(--line)}
+th{color:var(--mute);font-weight:500}
+.you{color:var(--acc)}
+.mute{color:var(--mute)}
+.s{font-size:12px}
+canvas{width:100%;display:block;background:var(--pitch);border-radius:16px}
+.score{display:flex;justify-content:space-between;align-items:center;margin:8px 0 10px}
+.score b{font-size:30px}
+select{width:100%;background:#151b19;color:var(--fg);border:1px solid var(--line);border-radius:10px;padding:10px}
+.hl{border-left:3px solid var(--acc);padding:6px 0 6px 10px;margin:6px 0;font-size:13px}
+.err{color:#e07a6a;font-size:13px;padding:8px 0}
+</style>
 </head>
 <body>
-  <div class="wrap" id="app"></div>
-  <script src="./data.js"></script>
-  <script src="./game-a.js"></script>
-  <script src="./game-b.js"></script>
-  <script src="./game-c.js"></script>
+<div class="wrap" id="root"></div>
+<script src="./app.js"></script>
 </body>
 </html>

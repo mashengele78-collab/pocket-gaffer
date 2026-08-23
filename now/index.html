@@ -12,12 +12,9 @@
   <link rel="manifest" href="./manifest.webmanifest" />
   <link rel="apple-touch-icon" href="../icons/icon-192.png" />
   <style>
-    :root {
-      --bg:#0c0f0e; --fg:#e8eee9; --muted:#8a9690; --line:#1c2421;
-      --card:#121816; --accent:#c6d7c4; --good:#7dcea0; --bad:#e07a6a; --warn:#e0c56a;
-    }
+    :root { --bg:#0c0f0e; --fg:#e8eee9; --muted:#8a9690; --line:#1c2421; --card:#121816; --accent:#c6d7c4; }
     *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--fg);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;min-height:100%}
+    html,body{margin:0;background:var(--bg);color:var(--fg);font-family:ui-sans-serif,system-ui,-apple-system,sans-serif;min-height:100%}
     body{padding:env(safe-area-inset-top) 16px 24px}
     button,select{font:inherit}
     h1,h2,h3{font-weight:650;letter-spacing:-.03em;margin:0}
@@ -46,13 +43,16 @@
     canvas{width:100%;height:auto;background:#163024;border-radius:16px;display:block}
     .score{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:10px 0}
     .score b{font-size:28px}
-    input,select{background:#151b19;color:var(--fg);border:1px solid var(--line);border-radius:10px;padding:10px}
+    select{background:#151b19;color:var(--fg);border:1px solid var(--line);border-radius:10px;padding:10px}
     .hl{border-left:3px solid var(--accent);padding-left:10px;margin:8px 0}
     .list button{width:100%;text-align:left}
   </style>
 </head>
 <body>
   <div class="wrap" id="app"></div>
-  <script src="./app.js"></script>
+  <script src="./data.js"></script>
+  <script src="./game-a.js"></script>
+  <script src="./game-b.js"></script>
+  <script src="./game-c.js"></script>
 </body>
 </html>
